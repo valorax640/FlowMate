@@ -197,14 +197,14 @@ const StatisticsScreen = () => {
             <View style={styles.pieChartWrapper}>
               <PieChart
                 data={pieChartData}
-                width={chartWidth - 32}
-                height={220}
+                width={chartWidth}
+                height={200}
                 chartConfig={{
                   color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
                 }}
                 accessor="population"
                 backgroundColor="transparent"
-                paddingLeft="20"
+                paddingLeft="10"
                 hasLegend={false}
                 absolute
               />
@@ -239,9 +239,8 @@ const StatisticsScreen = () => {
               const percentage = ((amount / expenseTotal) * 100).toFixed(1);
               
               return (
-                <View key={categoryId} style={styles.categoryRow}>
+                <View key={categoryId} style={[styles.categoryRow , index === topCategories.length - 1 ? {borderBottomWidth: 0} : {}]}>
                   <View style={styles.categoryLeft}>
-                    <Text style={styles.categoryRank}>#{index + 1}</Text>
                     <View
                       style={[
                         styles.categoryIcon,
