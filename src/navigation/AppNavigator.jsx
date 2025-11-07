@@ -7,6 +7,10 @@ import HomeScreen from '../screens/HomeScreen';
 import AddExpenseScreen from '../screens/AddExpenseScreen';
 import BudgetScreen from '../screens/BudgetScreen';
 import StatisticsScreen from '../screens/StatisticsScreen';
+import PeoplePaymentsScreen from '../screens/PeoplePaymentsScreen';
+import SinglePersonScreen from '../screens/SinglePersonScreen';
+import GroupDetailScreen from '../screens/GroupDetailScreen';
+import AddPersonScreen from '../screens/AddPersonScreen';
 import {APP_COLORS} from '../constants/expenseCategories';
 
 const Stack = createNativeStackNavigator();
@@ -59,6 +63,16 @@ const TabNavigator = () => {
         }}
       />
       <Tab.Screen
+        name="PeopleTab"
+        component={PeoplePaymentsScreen}
+        options={{
+          tabBarLabel: 'People',
+          tabBarIcon: ({color, size}) => (
+            <Icon name="people" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
         name="StatisticsTab"
         component={StatisticsScreen}
         options={{
@@ -102,6 +116,28 @@ const AppNavigator = () => {
           component={AddExpenseScreen}
           options={{
             title: 'Add Transaction',
+            presentation: 'modal',
+          }}
+        />
+        <Stack.Screen
+          name="SinglePerson"
+          component={SinglePersonScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="GroupDetail"
+          component={GroupDetailScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="AddPerson"
+          component={AddPersonScreen}
+          options={{
+            headerShown: false,
             presentation: 'modal',
           }}
         />
